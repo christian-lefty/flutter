@@ -48,17 +48,8 @@ class _HelloServicesState extends State<HelloServices> {
   }
 
   Future<Null> _getLocation() async {
-    final Map<String, String> message = <String, String>{'provider': 'network'};
-    final Map<String, dynamic> reply = await PlatformMessages.sendJSON('getLocation', message);
-    // If the widget was removed from the tree while the message was in flight,
-    // we want to discard the reply rather than calling setState to update our
-    // non-existent appearance.
-    if (!mounted)
-      return;
-    setState(() {
-      _latitude = reply['latitude'].toDouble();
-      _longitude = reply['longitude'].toDouble();
-    });
+    final String reply = await PlatformMessages.sendString('getLocation', '');
+    print("This is the reply: $reply");
   }
 }
 

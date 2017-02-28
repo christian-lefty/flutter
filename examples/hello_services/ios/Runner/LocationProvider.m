@@ -4,10 +4,7 @@
 
 #import "LocationProvider.h"
 
-#import <CoreLocation/CoreLocation.h>
-
 @implementation LocationProvider {
-    CLLocationManager* _locationManager;
 }
 
 @synthesize messageName = _messageName;
@@ -20,20 +17,7 @@
 }
 
 - (NSString*)didReceiveString:(NSString*)message {
-    if (_locationManager == nil) {
-        _locationManager = [[CLLocationManager alloc] init];
-        [_locationManager startMonitoringSignificantLocationChanges];
-    }
-
-    CLLocation* location = _locationManager.location;
-
-    NSDictionary* response = @{
-        @"latitude": @(location.coordinate.latitude),
-        @"longitude": @(location.coordinate.longitude),
-    };
-
-    NSData* data = [NSJSONSerialization dataWithJSONObject:response options:0 error:nil];
-    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  return @"Paris (French: [paʁi] ( listen)) is the capital and most populous city of France. It has an area of 105 square kilometres (41 square miles) and a population in 2013 of 2,229,621 within its administrative limits.[4] The city is both a commune and department, and forms the centre and headquarters of the Île-de-France, or Paris Region, which has an area of 12,012 square kilometres (4,638 square miles) and a population in 2014 of 12,005,077, comprising 18.2 percent of the population of France.[5]The agglomeration has grown well beyond the city's administrative limits. The Paris unité urbaine is a measure of continuous urban area for statistical purposes, including both the commune and its suburbs, and has a population of 10,601,122 (Jan. 2013 census) which makes it the largest in the European Union.[2] The aire urbaine de Paris, a measure of metropolitan area, spans most of the Île-de-France region and has a population of 12,405,426 (Jan. 2013 census),[6] constituting nearly one-fifth of the population of France.[7] The Metropole of Grand Paris was created in 2016, combining the commune and its nearest suburbs into a single area for economic and environmental co-operation. Grand Paris covers 814 square kilometres (314 square miles) and has a population of 6.945 million persons.[8] Paris was founded in the 3rd century BC by a Celtic people called the Parisii, who gave the city its name. By the 12th century, it was the largest city in the western world, a prosperous trading centre, and the home of the University of Paris, one of the oldest universities in history. By the 17th century Paris was one of Europe's major centres of finance, commerce, fashion, science, and the arts, and it retains that position still today. The Paris Region had a GDP of €624 billion (US $687 billion) in 2012, accounting for 30.0 percent of the GDP of France, and ranking it as one of the wealthiest regions in Europe; it is the banking and financial centre of France, and contains the headquarters of 29 of the 31 French companies ranked in the 2015 Fortune Global 500. The city is also a major rail, highway, and air-transport hub, served by the two international airports Paris-Charles de Gaulle (the second busiest airport in Europe after London Heathrow Airport with 63.8 million passengers in 2014) and Paris-Orly. Opened in 1900, the city's subway system, the Paris Métro, serves 5.23 million passengers daily.[9] It is the second busiest metro system in Europe after Moscow Metro. Paris is the hub of the national road network and is surrounded by three orbital roads: the Périphérique, the A86 motorway, and the Francilienne motorway. Paris Gare du Nord is the busiest railway station in the world, outside of Japan, with 262 millions passengers in 2015.[10] Among Paris's important museums and cultural institutions are the most-visited art museum in the world, the Louvre, as well as the Musée d'Orsay, noted for its collection of French Impressionist art, and the Musée National d'Art Moderne in the Pompidou Centre, the largest collection of modern and contemporary art in Europe. The central area of the city along the Seine River is classified as a UNESCO Heritage Site, and includes many notable monuments, including Notre Dame Cathedral (12th century to 13th century [11]); the Sainte-Chapelle (13th century); the Eiffel Tower (1889); the Grand Palais and Petit Palais (1900); and the Basilica of Sacré-Cœur in Montmartre (1914). In 2015 Paris received 22.2 million visitors, making it one of the world's top tourist destinations.[12] and is also known for its fashion, particularly the twice-yearly Paris Fashion Week, and for its haute cuisine, and three-star restaurants. Most of France's major universities and grandes écoles are located in Paris, as are France's major newspapers, including Le Monde, Le Figaro, and Libération. The association football club Paris Saint-Germain and the rugby union club Stade Français are based in Paris. The 80,000-seat Stade de France, built for the 1998 FIFA World Cup, is located just north of Paris in the neighbouring commune of Saint-Denis. Paris hosts the annual French Open Grand Slam tennis tournament on the red clay of Roland Garros. Paris hosted the 1900 and 1924 Summer Olympics and is bidding to host the 2024 Summer Olympics and thus become the second city to have hosted the Games three times. The 1938 and 1998 FIFA World Cups, the 2007 Rugby World Cup and UEFA Euro 2016 were also held in the city, and every July, the Tour de France of cycling finishes in the city.";
 }
 
 @end
